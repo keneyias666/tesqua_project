@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventura</title>
+    <link rel="icon" href="/imagestestqua/letter E.png" 
+        type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: #2e2b34;
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .profile {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background: white;
+            color: black;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            width: 150px;
+            padding: 10px;
+        }
+
+        .profile-menu.active {
+            display: block;
+        }
+
+        .profile-menu a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .profile-menu a:hover {
+            background-color: #ddd;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 200px;
+            height: 80vh;
+            padding: 40px;
+            background-color: white;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        
+        .dropdown-content {
+            display: none;
+            margin-left: 20px; 
+        }
+
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            margin-left: 20px;
+            border-radius: 5px;
+        }
+
+        .register-button {
+            display: inline-block; /* Ensures the button fits content but maintains structure */
+            width: 200px; /* Fixed width for all buttons */
+            padding: 12px 0; /* Ensures equal height */
+            background-color: #007bff; /* Blue color */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px; /* Rounded corners */
+            text-align: center;
+            transition: background 0.3s ease-in-out, transform 0.1s ease-in-out;
+        }
+
+        .register-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .register-button:active {
+            transform: scale(0.98); /* Slight press effect */
+        }
+
+        /* Ensure the container flex aligns buttons properly */
+        .event {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Ensures spacing is even */
+            width: 100%;
+            padding: 15px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .event div {
+            flex: 1; /* Ensures consistent width */
+        }
+
+        .event img {
+            width: 150px;
+            height: 200px;
+            border-radius: 5px;
+            margin-right: 20px;
+            object-fit: cover; /* Ensures image consistency */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <strong><a href="eventura.html">EVENTURA</a></strong>
+            <br><br><br>
+            <a href="eventura.html">Events</a>
+            <a href="#">Features ▼</a>
+            <a href="#">Event Types ▼</a>
+        </div>
+
+        <div class="profile">
+            <a id="profile-button">Pugoy ▼</a>
+            <div class="profile-menu" id="profile-menu">
+                <a href="event_list.html">Manage My Event</a>
+                <a href="accountdet.html">Account Settings</a>
+                <a href="#">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>FILTER</h3>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle">Featured ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Parties</a>
+                    <a href="festival.html">Festivals</a>
+                    <a href="#">Conferences</a>
+                    <a href="#">Non-Profit Events</a>
+                    <a href="#">Weddings</a>
+                    <a href="#">Reunions</a>
+                    <a href="#">Tournaments/Sporting</a>
+                </div>
+            </div>
+            <br>
+            <a href="#">Create registration event</a>
+        </div>
+
+        <div class="content">
+            <div class="event">
+                <img src="festival-queen.jfif" alt="Festival Queen">
+                <div>
+                    <h3>Festival Queen</h3>
+                    <p>Sinulog Festival: A Journey of Tradition, Spirit and Celebration</p>
+                    <button class="register-button">Register</button>
+                </div>
+            </div>
+
+            <div class="event">
+                <img src="Siomai Festival.jfif" alt="Siomai Festival">
+                <div>
+                    <h3>Siomai Festival</h3>
+                    <p>A Celebration of taste and Tradition.</p>
+                    <button class="register-button">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Toggle profile dropdown on click
+    document.getElementById("profile-button").addEventListener("click", function(event) {
+        event.stopPropagation();
+        document.getElementById("profile-menu").classList.toggle("active");
+    });
+
+    // Keep profile menu open when clicking inside
+    document.getElementById("profile-menu").addEventListener("click", function(event) {
+        event.stopPropagation();
+    });
+
+    // Close profile menu when clicking outside
+    document.addEventListener("click", function(event) {
+        var profileMenu = document.getElementById("profile-menu");
+        if (!event.target.closest(".profile")) {
+            profileMenu.classList.remove("active");
+        }
+    });
+
+    // Sidebar Dropdown Toggle
+    document.querySelector(".dropdown-toggle").addEventListener("click", function(event) {
+        event.preventDefault();
+        this.closest(".dropdown").classList.toggle("active");
+    });
+
+    // Show alert when "Register" button is clicked
+    document.querySelectorAll(".register-button").forEach(button => {
+        button.addEventListener("click", function() {
+            if (confirm("Registration Successful! Proceed to Create Templates?")) {
+                window.location.href = "create_templates.html"; // Change to your actual page
+            }
+        });
+    });
+</script>
+
+    
+</body>
+</html>

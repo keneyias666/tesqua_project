@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventura</title>
+    <link rel="icon" href="/imagestestqua/letter E.png" 
+        type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .navbar {
+            background-color: #2e2b34;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .profile {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background: white;
+            color: black;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            width: 150px;
+            padding: 10px;
+        }
+
+        .profile-menu a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .profile-menu a:hover {
+            background-color: #ddd;
+        }
+
+        /* Show menu when active */
+        .profile-menu.active {
+            display: block;
+        }
+
+        .container {
+            padding: 100px;
+            max-width: 2000px;
+            height: 800px;
+            margin: 0px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            color: #222;
+        }
+
+        .event {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .event img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .event-info {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .participants {
+            background: lightgray;
+            width: 150px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-links">
+            <strong><a href="eventura.html">EVENTURA</a></strong>
+            <br><br><br>
+            <a href="eventura.html">Events</a>
+            <a href="#">Features ▼</a>
+            <a href="#">Event Types ▼</a>
+        </div>
+
+        <div class="profile">
+            <a id="profile-button">Pugoy ▼</a>
+            <div class="profile-menu" id="profile-menu">
+                <a href="#">Manage My Event</a>
+                <a href="#">Account Settings</a>
+                <a href="#">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>EVENTS</h1>
+        <br><br><br>
+
+        <div class="event">
+            <img src="fun-run.jfif" alt="Fun Run">
+            <div class="event-details">
+                <div class="event-title">Fun Run</div>
+                <div class="event-info">
+                    A fun run is a non-competitive running event designed for enjoyment, fitness, and community participation, often supporting a cause or charity.
+                </div>
+                <div>
+                    📅 02/23/24 | 📍 Cebu City Convention Center
+                </div>
+                <div class="participants">Participants: 0/1000</div>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="festival-queen.jfif" alt="Festival Queen">
+            <div class="event-details">
+                <div class="event-title">Festival Queen</div>
+                <div class="event-info">
+                    Sinulog Festival: A Journey of Tradition, Spirit, and Celebration.
+                </div>
+                <div>
+                    📅 02/23/24 | 📍 Cebu City Convention Center
+                </div>
+                <div class="participants">Participants: 0/300</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle dropdown menu on click
+        document.getElementById("profile-button").addEventListener("click", function(event) {
+            event.stopPropagation(); // Prevent click from reaching body
+            document.getElementById("profile-menu").classList.toggle("active");
+        });
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function(event) {
+            var profileMenu = document.getElementById("profile-menu");
+            if (!event.target.closest(".profile")) {
+                profileMenu.classList.remove("active");
+            }
+        });
+    </script>
+
+</body>
+</html>

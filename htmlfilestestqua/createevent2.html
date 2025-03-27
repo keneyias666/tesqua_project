@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/imagestestqua/letter E.png" type="image/x-icon">
+    <title>Eventura</title>
+    <link rel="stylesheet" href="/cssfilestestqua/createevent2.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="left-section">
+                <h1>EVENTURA</h1>
+                <div class="dropdown-container">
+                    <div class="dropdown">
+                        <button class="dropbtn">My Events ▼</button>
+                        <div class="dropdown-content">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Event Types ▼</button>
+                        <div class="dropdown-content">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Property ▼</button>
+                        <div class="dropdown-content">
+                            <a href="#">Option 1</a>
+                            <a href="#">Option 2</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="dropdown">
+                    <button class="dropbtn">John Pugoy(Organizer) ▼</button>
+                    <div class="dropdown-content">
+                        <a href="manage_events.html">Manage My Event</a>
+                        <a href="manage_profileorganizer.html">Account Settings</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="create-event">
+            <h2>Create Event</h2>
+            <form id="eventForm">
+                <label for="eventTitle">Event Title</label>
+                <input type="text" id="eventTitle" name="eventTitle" required>
+
+                <label for="package">Type of Event</label>
+                <select id="package" name="package" required>
+                    <option value="weddings">Wedding</option>
+                    <option value="conferences">Conference</option>
+                    <option value="parties">Partie</option>
+                    <option value="reunions">Reunion</option>
+                    <option value="tournaments">Tournament</option>
+                    <option value="festivals">Festival</option>
+                </select>
+
+                <label for="guestPasses">Guest Passes</label>
+                <input type="number" id="guestPasses" name="guestPasses" required>
+
+                <label for="duration">Duration of Event</label>
+                <input type="text" id="duration" name="duration" required>
+
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required>
+
+                <label for="eventDate">Event date</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+
+                <label for="contactNumber">Contact number</label>
+                <input type="tel" id="contactNumber" name="contactNumber" required>
+
+                <button type="submit">Save</button>
+            </form>
+        </section>
+
+        <!-- Success Prompt -->
+        <div id="successPrompt" class="success-prompt">
+            <p>Event created successfully!</p>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById('eventForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Show the success prompt
+            const successPrompt = document.getElementById('successPrompt');
+            successPrompt.style.display = 'block';
+
+            // Hide the prompt after 3 seconds
+            setTimeout(() => {
+                successPrompt.style.display = 'none';
+            }, 3000);
+
+            // Optionally, you can reset the form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

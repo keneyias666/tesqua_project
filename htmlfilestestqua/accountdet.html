@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings</title>
+    <link rel="icon" href="/imagestestqua/letter E.png" type="image/x-icon">
+    <link rel="stylesheet" href="/cssfilestestqua/accountdet.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="eventura.html" class="brand-logo">Eventura</a>
+        <ul class="nav-links">
+            <li><a href="#">Help ▼</a></li>
+            <li><a href="#">Community ▼</a></li>
+            <li><a href="#">Partnership</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="sidebar">
+            <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+            <h2 id="profileName">John Juaquin Pugoy</h2>
+            <p class="email" id="profileEmail">juaquin23@gmail.com</p>
+            <p class="settings-link">Account Settings</p>
+        </div>
+        <div class="main-content">
+            <h1>Account info</h1>
+            <p>View and update your account details, profile, and more.</p>
+            <label>First Name</label>
+            <input type="text" id="firstName" placeholder="First name">
+            <label>Last Name</label>
+            <input type="text" id="lastName" placeholder="Last name">
+            <label>Site URL Prefix</label>
+            <input type="text" id="siteUrl" placeholder="Site URL prefix">
+            <label>Account Language</label>
+            <select>
+                <option>English</option>
+            </select>
+            <h2>Login info</h2>
+            <label>Account Email</label>
+            <input type="email" id="email" value="juaquin23@gmail.com">
+            <label>Password</label>
+            <input type="password" id="password" value="" placeholder="************" disabled>
+            <label>Phone Number</label>
+            <input type="text" id="phoneNumber" value="" placeholder="09123456789" disabled>
+            <div class="buttons">
+                <button id="editPassword">Edit Password</button>
+                <button id="addPhoneNumber">Add Phone Number</button>
+                <button id="saveChanges">Save Changes</button>
+            </div>
+            <p>Your phone number can be used to recover your account.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("editPassword").addEventListener("click", function() {
+            let passwordField = document.getElementById("password");
+            passwordField.removeAttribute("disabled");
+            passwordField.focus();
+        });
+    
+        document.getElementById("addPhoneNumber").addEventListener("click", function() {
+            let phoneField = document.getElementById("phoneNumber");
+            phoneField.removeAttribute("disabled");
+            phoneField.focus();
+        });
+    
+        document.getElementById("saveChanges").addEventListener("click", function() {
+            let firstName = document.getElementById("firstName").value.trim();
+            let lastName = document.getElementById("lastName").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phoneNumber = document.getElementById("phoneNumber").value.trim();
+    
+            if (firstName === "" || lastName === "" || email === "") {
+                alert("Please fill out all required fields before saving.");
+                return;
+            }
+    
+            // Update profile section dynamically
+            document.getElementById("profileName").innerText = firstName + " " + lastName;
+            document.getElementById("profileEmail").innerText = email;
+    
+            alert("Changes saved successfully!");
+        });
+    </script>
+    
+</body>
+</html>
